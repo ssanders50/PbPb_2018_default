@@ -1,0 +1,11 @@
+
+/bin/rm -f lib/slc6_amd64_gcc700/pluginHeavyIonsAnalysisMCEvtPlane.so lib/slc6_amd64_gcc700/HeavyIonsAnalysisMCEvtPlane.edmplugin
+/bin/rm -f src/HeavyIonsAnalysis/MCEvtPlane/python/__init__.py src/HeavyIonsAnalysis/MCEvtPlane/python/__init__.pyc
+/bin/rm -rf tmp/slc6_amd64_gcc700/edmplugins/poison/HeavyIonsAnalysis/MCEvtPlane
+/bin/touch tmp/common/cache/packs/changed
+edmPluginRefresh lib/slc6_amd64_gcc700
+/bin/rm -f lib/slc6_amd64_gcc700/pluginHeavyIonsAnalysisQWNtrkOfflineProducer.so lib/slc6_amd64_gcc700/HeavyIonsAnalysisQWNtrkOfflineProducer.edmplugin
+/bin/rm -f src/HeavyIonsAnalysis/QWNtrkOfflineProducer/python/__init__.py src/HeavyIonsAnalysis/QWNtrkOfflineProducer/python/__init__.pyc
+/bin/rm -rf tmp/slc6_amd64_gcc700/edmplugins/poison/HeavyIonsAnalysis/QWNtrkOfflineProducer
+/bin/touch tmp/common/cache/packs/changed
+edmPluginRefresh lib/slc6_amd64_gcc700

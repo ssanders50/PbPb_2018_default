@@ -1,0 +1,2 @@
+ALL_PACKAGES += HeavyIonsAnalysis/VNAnalysis
+subdirs_src_HeavyIonsAnalysis_VNAnalysis := src_HeavyIonsAnalysis_VNAnalysis_src src_HeavyIonsAnalysis_VNAnalysis_python src_HeavyIonsAnalysis_VNAnalysis_test
