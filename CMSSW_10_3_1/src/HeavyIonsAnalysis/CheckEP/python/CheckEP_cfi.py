@@ -15,5 +15,5 @@ CheckEP = cms.EDAnalyzer("CheckEP",
                             nvtx_ = cms.untracked.int32(100),
                             minvz_ = cms.untracked.double(-15.),
                             maxvz_ = cms.untracked.double(15.),
-                            EP_ = cms.string("All")
+                            EP_ = cms.string("ALL")
  )
