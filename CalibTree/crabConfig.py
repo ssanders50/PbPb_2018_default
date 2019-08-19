@@ -8,22 +8,23 @@ config.section_('JobType')
 config.JobType.outputFiles = ['calib.root']
 config.JobType.pluginName = 'Analysis'
 config.JobType.psetName = '/home/sanders/PbPb_2018_default/CalibTree/calibtree_cfg.py'
-config.JobType.maxJobRuntimeMin = 1315
+config.JobType.maxJobRuntimeMin = 2500
 config.section_('Data')
-config.Data.unitsPerJob = 80
+config.Data.unitsPerJob = 160
 config.Data.publication = False
 config.Data.splitting = 'LumiBased'
 config.section_('User')
 config.section_('Site')
 config.Site.storageSite = 'T2_US_Vanderbilt'
 
-config.General.requestName = 'PbPb2018_MB0'
-config.Data.outLFNDirBase = '/store/user/ssanders/PbPb2018_MB0'
-config.Data.lumiMask = 'json_DCSONLY_HI.txt'
-config.JobType.inputFiles = ['json_DCSONLY_HI.txt']
-config.JobType.pyCfgParams = ['noprint','lumifile=json_DCSONLY_HI.txt']
-config.Data.inputDataset = '/HIMinimumBias0/HIRun2018A-PromptReco-v1/AOD'
-config.Data.runRange = '326523-326965'
+config.General.requestName = 'PbPb2018_default_calib_MB0'
+config.Data.outLFNDirBase = '/store/user/ssanders/PbPb2018_default_calib_MB0'
+config.Data.lumiMask = 'Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt'
+config.JobType.inputFiles = ['Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt']
+config.JobType.pyCfgParams = ['noprint','lumifile=Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt']
+config.Data.inputDataset = '/HIMinimumBias0/HIRun2018A-04Apr2019-v1/AOD'
+
+config.Data.runRange = '326381-327564'
 
 if __name__ == '__main__':
 
@@ -44,9 +45,31 @@ if __name__ == '__main__':
     ## From now on that's what users should modify: this is the a-la-CRAB2 configuration part. ##
     #############################################################################################
 
-submit(config)
-
-#config.General.requestName = 'XeXe2017_MB2'
-#config.Data.outLFNDirBase = '/store/user/ssanders/XeXe2017_MB2'
-#config.Data.inputDataset = '/HIMinimumBias2/XeXeRun2017-13Dec2017-v1/AOD'
 #submit(config)
+iovs=[1, 326545, 326620, 326887, 327147, 327230, 328000]
+niovs = len(iovs)-1
+#niovs = 1
+for i in range(0, niovs):
+    print(' =============== ')
+    print(iovs[i])
+    dataset = '/HIMinimumBias0/HIRun2018A-04Apr2019-v1/AOD'
+    print(dataset)
+    runrange = str(iovs[i])+'-'+str(iovs[i+1]-1)
+    runranges = str(iovs[i])+'_'+str(iovs[i+1]-1)
+
+    print(runrange)
+    reqname = 'PbPb2018_default_calib_'+runranges
+    print(reqname)
+    dirbase='/store/user/ssanders/PbPb2018_default_calib_'+runranges
+    print(dirbase)
+    infiles=['Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt']
+    print(infiles)
+    parms=['noprint','lumifile=Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt']
+    print(parms)
+    config.Data.inputDataset = dataset
+    config.Data.runRange = runrange
+    config.General.requestName = reqname
+    config.Data.outLFNDirBase = dirbase
+    config.JobType.inputFiles=infiles
+    config.JobType.pyCfgParams = parms
+    submit(config)
