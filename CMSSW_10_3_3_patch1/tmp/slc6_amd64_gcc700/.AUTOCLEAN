@@ -1,0 +1,5 @@
+
+/bin/rm -f lib/slc6_amd64_gcc700/pluginHeavyIonsAnalysisCheckEP.so lib/slc6_amd64_gcc700/HeavyIonsAnalysisCheckEP.edmplugin
+/bin/rm -rf tmp/slc6_amd64_gcc700/edmplugins/poison/HeavyIonsAnalysis/CheckEP
+/bin/touch tmp/common/cache/packs/changed
+edmPluginRefresh lib/slc6_amd64_gcc700
