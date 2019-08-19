@@ -8,23 +8,23 @@ config.section_('JobType')
 config.JobType.outputFiles = ['check.root']
 config.JobType.pluginName = 'Analysis'
 config.JobType.psetName = '/home/sanders/PbPb_2018_default/CheckEP/checkep_cfg.py'
-config.JobType.maxJobRuntimeMin = 1350
+config.JobType.maxJobRuntimeMin = 2500
 config.section_('Data')
 config.Data.allowNonValidInputDataset = True
-config.Data.inputDataset = '/HIMinimumBias0/HIRun2018A-PromptReco-v1/AOD'
-config.Data.unitsPerJob = 50
+config.Data.inputDataset = '/HIMinimumBias0/HIRun2018A-04Apr2019-v1/AOD'
+config.Data.unitsPerJob = 160
 config.Data.publication = False
 config.Data.splitting = 'LumiBased'
 config.section_('User')
 config.section_('Site')
 config.Site.storageSite = 'T2_US_Vanderbilt'
 
-config.Data.runRange = '326523-326965'
+config.Data.runRange = '326381-327999'
 config.General.requestName = 'PbPb2018_check_MB0'
 config.Data.outLFNDirBase = '/store/user/ssanders/PbPb2018_check_MB0'
-config.Data.lumiMask = 'json_DCSONLY_HI.txt'
-config.JobType.inputFiles=['json_DCSONLY_HI.txt','HeavyIonRPRcd_PbPb2018_offline.db','offset_PbPb2018_1_600000.root']
-config.JobType.pyCfgParams = ['noprint','lumifile=json_DCSONLY_HI.txt','offset=offset_PbPb2018_1_600000.root','dbfile=HeavyIonRPRcd_PbPb2018_offline.db']
+config.Data.lumiMask = 'Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt'
+config.JobType.inputFiles=['Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt','HeavyIonRPRcd_PbPb2018_offline.db']
+config.JobType.pyCfgParams = ['noprint','lumifile=Cert_326381-327564_HI_PromptReco_Collisions18_JSON.txt','dbfile=HeavyIonRPRcd_PbPb2018_offline.db']
 config.JobType.allowUndistributedCMSSW = True
 if __name__ == '__main__':
 
